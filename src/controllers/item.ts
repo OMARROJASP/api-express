@@ -12,7 +12,7 @@ const getItem = (req:Request, res:Response) => {
 
 const getItems = (req:Request, res:Response) => {
     try{
-
+        res.send(req.body)
     }catch(e){
        handleHttp(res, 'ERROR_GET_ITEMS');
     }
@@ -26,9 +26,9 @@ const updateItem = (req:Request, res:Response) => {
     }
 }
 
-const postItem = (req:Request, res:Response) => {
+const postItem = ({body}:Request, res:Response) => {
     try{
-
+        res.send(body);
     }catch(e){
        handleHttp(res, 'ERROR_POST_ITEMS');
     }
