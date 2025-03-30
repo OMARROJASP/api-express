@@ -1,46 +1,46 @@
 import { Request, Response } from "express"
 import { handleHttp } from "../../utils/error.handler"
 
-const getItem = (req:Request, res:Response) => {
+const getBlog = (req:Request, res:Response) => {
     try{
         
     }catch(e){
-       handleHttp(res, 'ERROR_GET_ITEM');
+       handleHttp(res, 'ERROR_GET_BLOG');
     }
 
 }
 
-const getItems = (req:Request, res:Response) => {
+const getBlogs = (req:Request, res:Response) => {
     try{
         res.send(req.body)
     }catch(e){
-       handleHttp(res, 'ERROR_GET_ITEMS');
+       handleHttp(res, 'ERROR_GET_BLOGS');
     }
 }
 
-const updateItem = (req:Request, res:Response) => {
+const updateBlog = (req:Request, res:Response) => {
     try{
 
     }catch(e){
-       handleHttp(res, 'ERROR_UPDATE_ITEMS');
+       handleHttp(res, 'ERROR_UPDATE_BLOGS');
     }
 }
 
-const postItem = ({body}:Request, res:Response) => {
+const postBlog = ({body}:Request, res:Response) => {
     try{
         // res.send(body);
         res.json({ message: "Datos recibidos", data: body });
     }catch(e){
-       handleHttp(res, 'ERROR_POST_ITEMS');
+       handleHttp(res, 'ERROR_POST_BLOGS');
     }
 }
 
-const deleteItem = (req:Request, res:Response) => {
+const deleteBlog = (req:Request, res:Response) => {
     try{
 
     }catch(e){
-       handleHttp(res, 'ERROR_DELETE_ITEMS');
+       handleHttp(res, 'ERROR_DELETE_BLOGS');
     }
 }
 
-export { getItem, getItems, updateItem, postItem, deleteItem};
+export { getBlog, getBlogs, updateBlog, postBlog, deleteBlog};
