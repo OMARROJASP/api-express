@@ -1,5 +1,6 @@
 import { Request, Response } from "express"
 import { handleHttp } from "../../utils/error.handler"
+import { iterItem } from "../services/item";
 
 const getItem = (req:Request, res:Response) => {
     try{
@@ -28,13 +29,12 @@ const updateItem = (req:Request, res:Response) => {
 
 const postItem = ({body}:Request, res:Response) => {
     try{
-        const a = interItem(body);
-
-
-         res.send(body);
+        const reponseItem = iterItem(body);
+        
+         res.send(reponseItem);
         //res.json({ message: "Datos recibidos", data: body });
     }catch(e){
-       handleHttp(res, 'ERROR_POST_ITEMS');
+       handleHttp(res, 'ERROR_POST_ITEMS',e);
     }
 }
 

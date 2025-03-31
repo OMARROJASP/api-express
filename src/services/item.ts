@@ -1,7 +1,8 @@
 import { Car } from "../interface/car.interface";
 import ItemModel  from "../models/item";
-const itemModel = (item:Car) => {
-    
+const iterItem = async(item:Car) => {    
+    const responseInsert = await ItemModel.create(item);
+    return responseInsert;
 }
 
-export { itemModel };
+export { iterItem };
