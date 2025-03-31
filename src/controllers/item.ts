@@ -28,8 +28,11 @@ const updateItem = (req:Request, res:Response) => {
 
 const postItem = ({body}:Request, res:Response) => {
     try{
-        // res.send(body);
-        res.json({ message: "Datos recibidos", data: body });
+        const a = interItem(body);
+
+
+         res.send(body);
+        //res.json({ message: "Datos recibidos", data: body });
     }catch(e){
        handleHttp(res, 'ERROR_POST_ITEMS');
     }
