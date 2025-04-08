@@ -6,7 +6,8 @@ const getItem = async (req:Request, res:Response) => {
     try{
         const { id } = req.params;
         const responseItems = await getCar(id);
-        res.send({responseItems});  
+        const data = responseItems ? responseItems : "NOT_FOUND";
+        res.send({data});  
        
     }catch(e){
        handleHttp(res, 'ERROR_GET_ITEM');
@@ -17,7 +18,8 @@ const getItem = async (req:Request, res:Response) => {
 const getItems = async (req:Request, res:Response) => {
     try{
       const responseItems = await getCars();
-      res.send({responseItems});
+      const data = responseItems ? responseItems : "NOT_FOUND";
+      res.send({data});
        }catch(e){
        handleHttp(res, 'ERROR_GET_ITEMS');
     }
@@ -28,7 +30,6 @@ const updateItem = async (req:Request, res:Response) => {
         const { id } = req.params;
         const { body } = req;
         const responseItem = await updateCar(id, body);
-        console.log(responseItem);
         res.send({responseItem});
         //res.json({ message: "Datos recibidos", data: responseItem });
     }catch(e){
