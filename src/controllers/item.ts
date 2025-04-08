@@ -48,7 +48,7 @@ const postItem = async({body}:Request, res:Response) => {
 
 const deleteItem = async(req:Request, res:Response) => {
     try{
-const { id } = req.params;
+        const { id } = req.params;
         const responseItem = await deleteCar(id);           
         res.send({responseItem});
     }catch(e){
