@@ -2,7 +2,7 @@ import { encrypt, verified } from "../../utils/bcrypt.handle";
 import { Auth } from "../interface/auth.interface";
 import { User } from "../interface/user.interface";
 import UserModel from "../models/user";
-import { generateToken } from "./jwt.handle";
+import { generateToken } from "../../utils/jwt.handle";
 
 const registerNewUser = async ({email, password, name}: User)=>{
     const checkIs = await UserModel.findOne({email});
