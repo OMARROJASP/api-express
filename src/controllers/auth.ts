@@ -1,8 +1,9 @@
 import { Request, Response } from "express";
+const { registerNewUser, loginUser } = require("../services/auth");
 
-const registerCthrl = async (req: Request, res:Response) => {
+const registerCthrl = async ({body}: Request, res:Response) => {
     try {
-        const { body } = req;
+        const responseUser = await registerNewUser(body);
         res.send({ body });
     } catch (e) {
         res.status(500).send({ error: 'ERROR_REGISTER' });
